@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - ImageIQ Assistant</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-robot me-2"></i>
+                ImageIQ Assistant
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">
+                            <i class="fas fa-home me-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('about') }}">
+                            <i class="fas fa-info-circle me-1"></i> About
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <!-- Header Card -->
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <h2 class="card-title">
+                            <i class="fas fa-robot text-primary me-2"></i>
+                            About ImageIQ Assistant
+                        </h2>
+                    </div>
+                </div>
+
+                <!-- Overview Card -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="section-title">
+                            <i class="fas fa-info-circle text-primary me-2"></i>
+                            Overview
+                        </h4>
+                        <p class="overview-text">ImageIQ Assistant is a versatile image analysis tool that provides comprehensive insights about your images. Our platform combines advanced AI capabilities to help you understand images through different analytical perspectives, from general descriptions to specific details like object detection and text extraction.</p>
+                    </div>
+                </div>
+
+                <!-- Features Card -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="section-title d-flex align-items-center mb-4">
+                            <i class="fas fa-star text-primary me-2"></i>
+                            Features
+                        </h4>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <i class="fas fa-magic feature-icon"></i>
+                                <div class="feature-content">
+                                    <h5>General Analysis</h5>
+                                    <p>Detailed image analysis providing insights about subjects, activities, environment, and overall context with structured descriptions.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-eye feature-icon"></i>
+                                <div class="feature-content">
+                                    <h5>Object Detection</h5>
+                                    <p>Identify and locate multiple objects within images with high accuracy and confidence scores.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-font feature-icon"></i>
+                                <div class="feature-content">
+                                    <h5>Text Extraction</h5>
+                                    <p>Extract and recognize text from images, including printed and handwritten content.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-smile feature-icon"></i>
+                                <div class="feature-content">
+                                    <h5>Sentiment Analysis</h5>
+                                    <p>Analyze the emotional context and sentiment present in the image.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-tags feature-icon"></i>
+                                <div class="feature-content">
+                                    <h5>Classification</h5>
+                                    <p>Categorize images into predefined classes with detailed confidence scores and multi-label classification capabilities.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technologies Card -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="section-title">
+                            <i class="fas fa-microchip text-primary me-2"></i>
+                            Technologies Used
+                        </h4>
+                        <div class="tech-stack mt-3">
+                            <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-badge"><i class="fab fa-flask"></i> Flask</span>
+                            <span class="tech-badge"><i class="fab fa-google"></i> Google Gemini</span>
+                            <span class="tech-badge"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Usage Card -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="section-title">
+                            <i class="fas fa-user-guide text-primary me-2"></i>
+                            Quick Start Guide
+                        </h4>
+                        <div class="usage-list">
+                            <div class="usage-item">
+                                <div class="usage-content">
+                                    <h5>1. Upload Image</h5>
+                                    <p>Upload an image using the upload button or drag & drop interface</p>
+                                </div>
+                            </div>
+                            <div class="usage-item">
+                                <div class="usage-content">
+                                    <h5>2. Select Analysis</h5>
+                                    <p>Select the type of analysis you want to perform</p>
+                                </div>
+                            </div>
+                            <div class="usage-item">
+                                <div class="usage-content">
+                                    <h5>3. Add Instructions</h5>
+                                    <p>Add any specific questions or instructions (optional)</p>
+                                </div>
+                            </div>
+                            <div class="usage-item">
+                                <div class="usage-content">
+                                    <h5>4. Get Results</h5>
+                                    <p>Click "Analyze Image" to get your results</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

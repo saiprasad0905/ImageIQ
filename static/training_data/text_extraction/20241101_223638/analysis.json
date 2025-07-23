@@ -1,0 +1,7 @@
+{
+    "extracted_text": {
+        "printed_text": "KLHCode\nKLHCODEWEEK5\nQuestions\n#KLHCODE172\nHarvesting\n#KLHCODE174\nSequence Conformity\n#KLHCODE178\nEvent Etiquette\nKLHCODE172: 100 KLHCODE174: 100\nKLHCODE178: 100\nTime Remaining\n00:57:40\n2320030313\nJohn, a farmer, wanted to improve his crop yields. He saw his field as a big chart, with each row representing a different part. By finding the difference between the tallest and shortest plants in each row and including the difference between self plants (called the \"range\"), he could understand how his crops varied across the field. Using this knowledge, John optimized his farming practices and achieved better yields.\nInput Format\nFirst Line contains positive integer values which denotes total plants. Second line contains space separated positive integer values which denotes number of plants.\nOutput Format\nA Single line output contains positive integer value which denotes sum of different between tallest plant to shortest plant.\nSample Input\n3\n1 2 3\nSample Output\n4\nExplaination\nInput:",
+        "handwritten_text": "",
+        "text_regions": []
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "extracted_text": {
+        "printed_text": "KLHCode\nKLHCODEWEEK5\nQuestions\n#KLHCODE172\nHarvesting\n#KLHCODE174\nSequence Conformity\n#KLHCODE178\nEvent Etiquette\nKLHCODE172: 100 KLHCODE174: 100\nKLHCODE178: 100\nTime Remaining\n00:57:05\nKLHCode C (gcc 7.2.0)\nRun\nSubmit\nContest Ongoing\nEvent Etiquette 2320030\n2320030313\n\n\nmain.c\n1 #include <stdio.h>\n2\n3 int main(void) {\n4     int n;\n5     scanf(\"%d\",&n);\n6     int a[n], even=0,odd=0;\n7     for(int i=0;i<n;i++) {\n8         scanf(\"%d\", &a[i]);\n9         if(a[i]%2==0)\n10             ++even;\n11         else\n12             ++odd;\n13     }\n14     if(even==odd) {\n15         for(int i=0;i<n;i++) {\n16             if(a[i]%2!=i%2) {\n17                 int key;\n18                 for(int j=0;j<n;j++){\n19                     if(a[j]%2!=j%2){\n20                         if((i%2!=j%2)&&a[i]%2!=a[j]%2){\n21                             int temp=a[i];\n22                             a[i]=a[j];\n23                             a[j]=temp;\n24                         }\n25                     }\n26                 }\n27             }\n28         }\n29         for(int i=0;i<n;i++)\n30             printf(\"%d \",a[i]);\n31     }\n32     else{\n33         printf(\"Invalid\\n\");\n34     }\n35     return 0;\n36 }\n37 \n\nSTDIN\n1\n\nSTDOUT\n1\nSTDERR\nCOMPILE OUTPUT",
+        "handwritten_text": "",
+        "text_regions": []
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "20241101_222750": {
+        "timestamp": "2024-11-01T22:27:50.569989",
+        "query_type": "text_extraction",
+        "image_path": "20241101_222729_IMG-20240319-WA0003.jpg",
+        "status": "collected"
+    },
+    "20241101_223638": {
+        "timestamp": "2024-11-01T22:36:38.666834",
+        "query_type": "text_extraction",
+        "image_path": "20241101_223627_IMG-20240319-WA0006.jpg",
+        "status": "collected"
+    },
+    "20241102_113420": {
+        "timestamp": "2024-11-02T11:34:20.991495",
+        "query_type": "text_extraction",
+        "image_path": "20241102_113359_WhatsApp_Image_2024-03-26_at_09.36.39_584b7363.jpg",
+        "status": "collected"
+    }
+}

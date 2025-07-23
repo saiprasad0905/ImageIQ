@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image IQ Assistant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-robot me-2"></i>
+                ImageIQ Assistant
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('index') }}"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about') }}"><i class="fas fa-info-circle me-1"></i> About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Header Section -->
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <div class="header-content">
+                    <h1 class="display-4 fw-bold">ImageIQ Assistant</h1>
+                    <p class="lead text-muted">Upload an image and ask questions to get intelligent responses</p>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Main Interface -->
+        <div class="row g-4">
+            <!-- Upload Section -->
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <div class="card upload-card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">
+                            <i class="fas fa-image text-primary"></i> Upload Image
+                        </h3>
+                        <div class="upload-container" id="dropZone">
+                            <input type="file" id="imageUpload" class="d-none" accept="image/*">
+                            <label for="imageUpload" class="upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Drag & Drop or Click to Upload</span>
+                            </label>
+                        </div>
+                        <div id="imagePreviewContainer" class="mt-3 d-none">
+                            <div class="preview-container">
+                                <img id="imagePreview" src="" alt="Preview" class="img-fluid rounded">
+                                <button type="button" class="btn-close delete-image" onclick="deleteImage()" aria-label="Close"></button>
+                            </div>
+                            <div id="imageInfo" class="mt-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Section -->
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <div class="card input-card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">
+                            <i class="fas fa-message text-primary"></i> Ask Your Question
+                        </h3>
+                        <textarea id="userInput" class="form-control" rows="6" 
+                                placeholder="What would you like to know about the image?"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Options -->
+        <div class="row g-4 mt-4">
+            <div class="col-12">
+                <div class="card analysis-card">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">
+                            <i class="fas fa-brain text-primary"></i> Analysis Options
+                        </h3>
+                        <div class="analysis-options-grid">
+                            <div class="analysis-option">
+                                <input class="form-check-input" type="radio" name="queryType" id="generalAnalysis" value="general" checked>
+                                <label class="form-check-label" for="generalAnalysis">
+                                    <i class="fas fa-magic"></i>
+                                    <span class="option-title">General Analysis</span>
+                                    <span class="option-desc">Comprehensive image analysis</span>
+                                </label>
+                            </div>
+                            <div class="analysis-option">
+                                <input class="form-check-input" type="radio" name="queryType" id="objectDetection" value="object_detection">
+                                <label class="form-check-label" for="objectDetection">
+                                    <i class="fas fa-object-group"></i>
+                                    <span class="option-title">Object Detection</span>
+                                    <span class="option-desc">Detect and locate objects</span>
+                                </label>
+                            </div>
+                            <div class="analysis-option">
+                                <input class="form-check-input" type="radio" name="queryType" id="classification" value="classification">
+                                <label class="form-check-label" for="classification">
+                                    <i class="fas fa-tags"></i>
+                                    <span class="option-title">Classification</span>
+                                    <span class="option-desc">Identify image content</span>
+                                </label>
+                            </div>
+                            <div class="analysis-option">
+                                <input class="form-check-input" type="radio" name="queryType" id="sentimentAnalysis" value="sentiment">
+                                <label class="form-check-label" for="sentimentAnalysis">
+                                    <i class="fas fa-heart"></i>
+                                    <span class="option-title">Sentiment Analysis</span>
+                                    <span class="option-desc">Analyze text sentiment</span>
+                                </label>
+                            </div>
+                            <div class="analysis-option">
+                                <input class="form-check-input" type="radio" name="queryType" id="textExtraction" value="text_extraction">
+                                <label class="form-check-label" for="textExtraction">
+                                    <i class="fas fa-font"></i>
+                                    <span class="option-title">Text Extraction</span>
+                                    <span class="option-desc">Extract text from images</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Generate Button positioned below options -->
+                        <div class="generate-button-container">
+                            <button id="generateBtn" class="btn btn-primary btn-lg" onclick="generateResponse()">
+                                <i class="fas fa-wand-magic-sparkles me-2"></i>
+                                Generate Response
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Container -->
+        <div class="results-container" id="resultsContainer">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Results will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Response Section -->
+        <div class="col-12">
+            <div class="card response-card">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">
+                        <i class="fas fa-robot text-primary"></i> AI Response
+                    </h3>
+                    <div id="response" class="response-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading-overlay">
+        <div class="spinner-content">
+            <div class="spinner-border text-light" role="status"></div>
+            <span class="ms-2">Processing your request...</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
